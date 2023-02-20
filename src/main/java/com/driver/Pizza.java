@@ -5,8 +5,8 @@ public class Pizza {
     private int price;
     private boolean isVeg;
     private  int extraCheesePrice = 80 ;
-    private int extraToppingsPrice;
-    private int takeAwayPrice = 20 ;
+    private int ExtraToppingsPrice;
+    private int TakeAwayPrice = 20 ;
     private String bill;
     private boolean isCheeseAdded;
     private boolean isToppingsAdded;
@@ -15,21 +15,21 @@ public class Pizza {
     public Pizza(Boolean isVeg){
 
         this.isVeg = isVeg;
-        isCheeseAdded = false;
-        isToppingsAdded = false;
-        isTakeaway = false;
-        isBillGenerated = false;
+        isCheeseAdded=false;
+        isToppingsAdded=false;
+        isTakeaway=false;
+        isBillGenerated=false;
 
         if(isVeg)
         {
-            this.price = 300;
-            this.extraToppingsPrice = 70;
+            price=300;
+            ExtraToppingsPrice=70;
         }
         else {
-            this.price = 400;
-            this.extraToppingsPrice = 120;
+            price=400;
+            ExtraToppingsPrice=120;
         }
-        this.bill = "Base Price Of The Pizza: "+this.price+ "\n";
+        bill="Base Price Of The Pizza: "+price+ "\n";
     }
 
     public int getPrice(){
@@ -40,16 +40,16 @@ public class Pizza {
     {
         // your code goes here
         if(!isCheeseAdded) {
-            this.price = price + extraCheesePrice;
-            this.isCheeseAdded = true;
+            price = price + extraCheesePrice;
+            isCheeseAdded = true;
         }
     }
 
     public void addExtraToppings(){
         // your code goes here
         if(!isToppingsAdded) {
-            this.price += extraToppingsPrice;
-            this.isToppingsAdded = true;
+            price = price +ExtraToppingsPrice;
+            isToppingsAdded=true;
         }
 
     }
@@ -57,8 +57,8 @@ public class Pizza {
     public void addTakeaway(){
         // your code goes here
         if(!isTakeaway) {
-            this.price += takeAwayPrice;
-            this.isTakeaway = true;
+            price = price + TakeAwayPrice;
+            isTakeaway = true;
         }
     }
 
@@ -66,22 +66,22 @@ public class Pizza {
         // your code goes here
         if(!isBillGenerated)
         {
-            this.isBillGenerated = true;
+            isBillGenerated=true;
 
 
             if(isCheeseAdded)
             {
-                this.bill += "Extra Cheese Added: "+this.extraCheesePrice+ "\n";
+                bill=bill+"Extra Cheese Added: "+extraCheesePrice+ "\n";
             }
             if(isToppingsAdded)
             {
-                this.bill += "Extra Toppings Added: "+this.extraToppingsPrice+ "\n";
+                bill=bill+"Extra Toppings Added: "+ExtraToppingsPrice+ "\n";
             }
             if(isTakeaway)
             {
-                this.bill += "Paper bag Added: "+this.takeAwayPrice+ "\n";
+                bill=bill+"Paperbag Added: "+TakeAwayPrice+ "\n";
             }
-            this.bill += "Total Price: "+ this.price+ "\n";
+            bill=bill+"Total Price: "+price+ "\n";
         }
         return this.bill;
     }
